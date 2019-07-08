@@ -18,9 +18,14 @@
    "pénis": "🍌",
    "dick": "🍆",
    "fuck me": "👉👌",
-   
-   //Orthographe
+   "baise-moi": "👉👌",
+   "vagin": "🍑",
+   "pussy": "🍑",
+   // Orthographe
     "salu": "Salut",
+    "ntm": "nique ta mère",
+   // +
+     "//mirador": "nique ta mère",
  };
 
  function escapeSpecialChars(regex) {
