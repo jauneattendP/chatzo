@@ -1,7 +1,7 @@
 {
-	"name": "qvole",
+	"name": "chatzo",
 	"version": "0.1.0",
-	"description": "A node js chat app",
+	"description": "chat app",
 	"main": "index.js",
 	"scripts": {
 		"start": "node index.js"
