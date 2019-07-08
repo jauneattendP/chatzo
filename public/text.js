@@ -26,6 +26,7 @@
     "slt": "Salut",
     "bjr": "Bonjour",
     "a+": "bye",
+    "cimer": "merci",
    // emoji+
    "lul": "😂",
  };
