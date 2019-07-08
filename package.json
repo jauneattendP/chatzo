@@ -19,5 +19,8 @@
 		"express",
 		"chat"
 	],
-	"license": "MIT"
+	"license": "MIT",
+	"devDependencies": {
+		"apache-server-configs": "^3.2.1"
+	}
 }
