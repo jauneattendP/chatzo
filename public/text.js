@@ -29,16 +29,16 @@
     "cimer": "merci",
     "chatezo":"chatzo",
     "chattzo":"chatzo",
-   // emoji+
+   // +
    "lul": "😂",
    "/funfact": "#funfact la terre est ronde🌍",
-   "/funfact1": "#funfact l'eau ça mouille",
-   "/art": "#╔╦╦╦╦╦╦╦╦╦╦╗",
-  "/arst": "#╠╬╬╬╬╬╬╬╬╬╬╣",
- "/rst": "  #╠╬╬█╬╬╬╬█╬╬╣",
-"/st":  "  # ╠╬╬╬╬╬╬╬╬╬╬╣",
-"/st":"  #    ╬████████╬╣",
-   
+   "/funfuk": "#funfact l'eau ça mouille",
+   "/art": "#  ∧＿∧",
+  "/arst": "# (´･ω･)",
+ "/rst": "  #(っ▄︻▇〓▄︻┻┳═一　　・・・・・",
+"/st":  "  # /　   )ﾊﾞﾊﾞﾊﾞﾊﾞ",
+"/t":"  #    ( /￣∪",
+"/help": "funfact, funfuk, art, arst, st, t",
  };
 
  function escapeSpecialChars(regex) {
