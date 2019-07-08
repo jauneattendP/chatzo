@@ -27,10 +27,11 @@
     "bjr": "Bonjour",
     "a+": "bye",
     "cimer": "merci",
-    "chatzo": "chatzo 💬",
+    "chatezo":"chatzo",
+    "chattzo":"chatzo",
    // emoji+
    "lul": "😂",
-   
+   "/funfact": "#funfact la terre est ronde🌍",
  };
 
  function escapeSpecialChars(regex) {
