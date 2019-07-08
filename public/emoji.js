@@ -8,7 +8,10 @@
    ":p": "\uD83D\uDE1B",
    ";p": "\uD83D\uDE1C",
    ":'(": "\uD83D\uDE22",
-   "issou": "\uD83D\",
+   "sexe": "🍆",
+   "bite": "🍆",
+   "zizi": "🍆",
+   "zizi": "🍆",
  };
 
  function escapeSpecialChars(regex) {
