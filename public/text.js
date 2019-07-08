@@ -27,8 +27,10 @@
     "bjr": "Bonjour",
     "a+": "bye",
     "cimer": "merci",
+    "chatzo": "chatzo 💬",
    // emoji+
    "lul": "😂",
+   
  };
 
  function escapeSpecialChars(regex) {
