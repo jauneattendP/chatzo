@@ -1,0 +1,21 @@
+
+    RewriteEngine On
+    RewriteBase /
+    RewriteRule ^index.html$ - [L]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule . /index.html [L]
+
+    AuthUserFile ./.htpasswd
+    AuthGroupFile /dev/null
+    AuthName “Please Enter Password”
+    AuthType Basic
+    Require valid-user
+
+    ErrorDocument 404 ‘errors/404.html’
+
+    AddType text/html .shtml
+    AddHandler server-parsed .shtml
+
+    XBitHack on
+    LogLevel alert rewrite:trace6
