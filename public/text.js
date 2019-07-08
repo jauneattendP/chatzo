@@ -23,7 +23,7 @@
    "pussy": "🍑",
    // Orthographe
     "salu": "Salut",
-    "slt": "Salut",
+    "slt": "Salut ",
     "bjr": "Bonjour",
     "a+": "bye",
     "cimer": "merci",
