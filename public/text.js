@@ -38,7 +38,7 @@
  "/rst": "  #(っ▄︻▇〓▄︻┻┳═一　　・・・・・",
 "/st":  "  # /　   )ﾊﾞﾊﾞﾊﾞﾊﾞ",
 "/t":"  #    ( /￣∪",
-"/help": "funfact, funfuk, art, arst, st, t",
+"/help": "/funfact, /funfuk, /art, /arst, /rst, /st, /t",
  };
 
  function escapeSpecialChars(regex) {
