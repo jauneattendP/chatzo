@@ -1,103 +1,119 @@
-class EmojiPicker {
-  constructor(data) {
-    this.data = data;
-  }
-  
-  parseUnicode(unicode) {
-    // https://unicode.org/emoji/charts/full-emoji-list.html
-    // https://stackoverflow.com/questions/39490865/how-can-i-get-the-full-list-of-slack-emoji-through-api
-    return unicode
-			.replace(/u[+]/gi, '&#x')
-			.replace(/ /gi, ';')
-			+ ';';
-  }
-  
-  renderEmojiGroup(name) {
-    // group emojis of same category
-    let emojis = document.createElement('div');
-    emojis.className = 'emoji-group';
-    
-    // category of emojis (smiles, people, food, etc.)
-    let emojiCategory = document.createElement('div');
-    emojiCategory.className = 'emoji-category';
-    
-    // emoji name :smile:
-    emojiCategory.textContent = name;
-    
-    // add emojis to respective category
-    emojis.append(emojiCategory);
-    
-    return emojis;
-  }
-  
-  renderEmoji(emoji) {
-    let e = document.createElement('div');
-    e.className = 'emoji';
-    
-    // parse emoji unicode
-    let eCode = this.parseUnicode(emoji.code);
-    
-    // set innerHTML as the parsed unicode
-    // <div>#&x...</div>
-    e.innerHTML = eCode;
-    
-    // set title as number and unicode code
-    // 1:U+1F600
-    e.setAttribute('title', `${emoji.no}:${emoji.code}`);
-    
-    // 
-    if (emoji.hasOwnProperty('types')) {
-      let eTypes = document.createElement('div');
-      eTypes.className = 'emoji-types';
-      
-      eTypes.append(e.cloneNode(true));
-      
-      for (let type in e.types) {
-        let eType = document.createElement('div');
-        let eCode = this.parseUnicode(e.types[type]);
-        
-        eType.innerHTML = eCode;
-        eTypes.append(eType);
-      }
+import EmojiPicker from "rm-emoji-picker";
+ 
+//First construct an instance of EmojiPicker
+const picker = new EmojiPicker();
+ 
+//Next tell it where to listen for a click, the container it should be appended to, and the input/textarea/contenteditable it needs to work with
+const icon      = document.getElementById('my-icon');
+const container = document.getElementById('container');
+const editable  = document.getElementById('my-input');
+ 
+picker.listenOn(icon, container, editable);
+const text = picker.getText();
+const emoji_text = EmojiPicker.render('lol! :laughing:')
+const picker = new EmojiPicker({
+    sheets: {
+        apple   : '/sheets/sheet_apple_64_indexed_128.png',
+        google  : '/sheets/sheet_google_64_indexed_128.png',
+        twitter : '/sheets/sheet_twitter_64_indexed_128.png',
+        emojione: '/sheets/sheet_emojione_64_indexed_128.png'
     }
+});
+const picker = new EmojiPicker({
+    //This tells the EmojiPicker that you want to use sprite sheets for operating
+    //systems that don't support emoji (sprite sheets are your fastest option).
+    //I've included sprite sheets for apple, google, twitter, and emojione emojis in the repo.
+    //Feel free to copy those into your web root and provide a path to the files in this option.
+    sheets: {
+        apple   : '/sheets/sheet_apple_64_indexed_128.png',
+        google  : '/sheets/sheet_google_64_indexed_128.png',
+        twitter : '/sheets/sheet_twitter_64_indexed_128.png',
+        emojione: '/sheets/sheet_emojione_64_indexed_128.png'
+    },
     
-    return e;
-  }
-  
-  render() {
-    let emojiPicker = document.createElement('div');
-    emojiPicker.className = 'emoji-picker';
+    //Show the colon syntax in the preview or don't. It may not make sense if you're
+    //using a contenteditable element to confuse users with unfamiliar colon syntax
+    show_colon_preview: true,
+ 
+    //If you want your contenteditable to be a single-line input, set this to true
+    prevent_new_line : false,
+ 
+    //The text that will be displayed when no emoji is being hovered over.
+    default_footer_message: "Please select an emoji from the list above",
+ 
+    //Can be "autoplace", "vertical", "horizontal", or a function that takes a tooltip as an argument.
+    //The tooltip is an instance of the class in this repo here: https://github.com/RobertMenke/Tooltip-js
+    positioning: "autoplace",
     
-    for (let emojiGroup in this.data) {
-      let eGroup = this.renderEmojiGroup(emojiGroup);
-      
-      for (let emoji in this.data[emojiGroup]) {
-        if (this.data[emojiGroup][emoji].flagged || this.data[emojiGroup][emoji].no === 18) continue;
-        
-        let e = this.renderEmoji(this.data[emojiGroup][emoji]);
-        eGroup.append(e)
-      }
-      emojiPicker.append(eGroup);
-    }
-    return emojiPicker;
-  }
-}
-
-$(() => {
-		$.getJSON('https://api.myjson.com/bins/4sz7d', function(emojiData) {
-		let EP = new EmojiPicker(emojiData);
-		$('body').append(EP.render());
-	});
-	
-	var $input = $('input');
-	
-	
-	$('body').on('click', '.emoji-picker>.emoji-group>.emoji:not(.emoji-with-types), .emoji-picker>.emoji-group>.emoji.emoji-with-types>.emoji-types>.emoji', function() {
-		$input.val($input.val() + $(this).text());
-		$input.focus();
-	}).on('click', '.emoji-picker>.emoji-group>.emoji.emoji-with-types', function() {
-		$('.emoji-types.visible').not( $(this).find('.emoji-types') ).toggleClass('visible');
-		$(this).find('.emoji-types').toggleClass('visible');
-	});
-	
+    //When the user hovers over the top row of icons, do you want them to be shown
+    //a tooltip indicating which category the icon represents?
+    show_icon_tooltips : true,
+ 
+    //Callback that occurs when an emoji gets selected. You get back Emoji, EmojiCategory, Node
+    callback   : (emoji, category, node) => {
+        if(node instanceof HTMLELement){
+            node.classList.add('emoji-image')
+        }
+    },
+    
+    //This optional callback is called any time the picker is opened.
+    onOpen : () => {
+        //trigger some event
+    },
+    
+    //This callback is called once the picker has fully parsed and created markup for each emoji
+    //and emoji category
+    onReady : (categories) => {
+        //example of setting a particular category as active and then filtering its contents
+        categories.setActiveCategoryByName('Activity');
+        picker.active_category.filter((/**Emoji*/emoji) => emoji.matchesSearchTerm(new RegExp("soccer")));
+        //some time later programmatically show all emojis
+        setTimeout(() => {
+            picker.active_category.showAllEmojis();
+        }, 3000)
+    },
+ 
+    //Use sprite sheets to display image emojis rather than links to png files (faster).
+    //If you want links to the png files see this repo here for examples (library I'm using):
+    //https://github.com/iamcal/emoji-data
+    use_sheets : true,
+    
+    //By default we show an magnifying glass icon in the search container, 
+    // but if you're not using fontawesome you may want to include your own icon.
+    search_icon : '<i class="fa fa-search" aria-hidden="true"></i>',
+    
+    //Sets of categories and icons that denote sections at the top of the picker.
+    // The category names are not arbitrary, they map to the names of categories in data.js. 
+    // By default, I'm assuming you're using FontAwesome because, well, why wouldn't you?! 
+    // If you want fewer categories, or different icons this is the place to configure that.
+    categories: [
+        {
+            title: "People",
+            icon : '<i class="fa fa-smile-o" aria-hidden="true"></i>'
+        },
+        {
+            title: "Nature",
+            icon : '<i class="fa fa-leaf" aria-hidden="true"></i>'
+        },
+        {
+            title: "Foods",
+            icon : '<i class="fa fa-cutlery" aria-hidden="true"></i>'
+        },
+        {
+            title: "Activity",
+            icon : '<i class="fa fa-futbol-o" aria-hidden="true"></i>'
+        },
+        {
+            title: "Places",
+            icon : '<i class="fa fa-globe" aria-hidden="true"></i>'
+        },
+        {
+            title: "Symbols",
+            icon : '<i class="fa fa-lightbulb-o" aria-hidden="true"></i>'
+        },
+        {
+            title: "Flags",
+            icon : '<i class="fa fa-flag-checkered" aria-hidden="true"></i>'
+        }
+    ]
 });
