@@ -1,4 +1,5 @@
  var map = {
+    //   Basique emoji
    "<3": "\u2764\uFE0F",
    "</3": "\uD83D\uDC94",
    ":D": "\uD83D\uDE00",
@@ -16,8 +17,10 @@
    "zizi": "🍌",
    "pénis": "🍌",
    "dick": "🍆",
-   "fuck me": "🍆",
+   "fuck me": "👉👌",
    
+   //Orthographe
+    "salu": "Salut",
  };
 
  function escapeSpecialChars(regex) {

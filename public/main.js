@@ -164,7 +164,7 @@ $(function() {
   });
   socket.on('login', function (data) {
     connected = true;
-    var message = "Bienvenue sur chatzo v1.0";
+    var message = "Bienvenue sur chatzo v0.1";
     log(message, {
       prepend: true
     });
