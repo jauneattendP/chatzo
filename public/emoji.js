@@ -7,7 +7,8 @@
    ":(": "\uD83D\uDE12",
    ":p": "\uD83D\uDE1B",
    ";p": "\uD83D\uDE1C",
-   ":'(": "\uD83D\uDE22"
+   ":'(": "\uD83D\uDE22",
+   "issou": "\uD83D\",
  };
 
  function escapeSpecialChars(regex) {
