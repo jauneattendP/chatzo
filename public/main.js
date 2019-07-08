@@ -70,7 +70,7 @@ $(function() {
   }
   function addChatTyping (data) {
     data.typing = true;
-    data.message = 'is typing';
+    data.message = '✍️';
     addChatMessage(data);
   }
   function removeChatTyping (data) {
