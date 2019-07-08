@@ -11,13 +11,7 @@ html {
 
 html, input {
   font-family:
-    "HelveticaNeue-Light",
-    "Helvetica Neue Light",
-    "Helvetica Neue",
-    Helvetica,
-    Arial,
-    "Lucida Grande",
-    sans-serif;
+font-family: 'Montserrat', sans-serif;
 }
 
 html, body {
@@ -69,7 +63,7 @@ ul {
   outline: none;
   padding-bottom: 10px;
   text-align: center;
-  width: 399px;
+  width: 300px;
 }
 
 .login.page .title {
