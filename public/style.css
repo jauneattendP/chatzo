@@ -8,6 +8,9 @@ html {
   font-weight: 300;
   -webkit-font-smoothing: antialiased;
 }
+.h5
+color ; white
+}
 
 html, input {
   font-family:
@@ -132,12 +135,11 @@ ul {
 /* Input */
 
 .inputMessage {
-  border: 20px solid #fff;
+  border: 30px solid #fff;
   bottom: 0;
   height: 60px;
   left: 0;
   outline: none;
-  padding-left: 10px;
   position: absolute;
   right: 0;
   width: 100%;
