@@ -23,9 +23,11 @@
    "pussy": "🍑",
    // Orthographe
     "salu": "Salut",
-    "ntm": "nique ta mère",
-   // +
-     "//mirador": "nique ta mère",
+    "slt": "Salut",
+    "bjr": "Bonjour",
+    "a+": "bye",
+   // emoji+
+   "lul": "😂",
  };
 
  function escapeSpecialChars(regex) {
