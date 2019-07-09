@@ -39,16 +39,19 @@
  "/rst": "  # (っ▄︻▇〓▄︻┻┳═一　　・・・・・",
 "/st":  "  #  /　   )ﾊﾞﾊﾞﾊﾞﾊﾞ",
 "/t":"  #    ( /￣∪",
-"/help": "/funfact, /funfuk, /art, /arst, /rst, /st, /t",
+"/help": "Liste des commandes  sur le chat -> funfact, funfuk,  art,  arst, rst,  st,  t",
  };
 
  function escapeSpecialChars(regex) {
    return regex.replace(/([()[{*+.$^\\|?])/g, '\\$1');
+   var inputMessage = "Hello World!";
+   var result = inputMessage.fontcolor("green");
  }
 
  document.getElementById('inputMessage').oninput = function() {
    for (var i in map) {
      var regex = new RegExp(escapeSpecialChars(i), 'gim');
      this.value = this.value = this.value.replace(regex, map[i]);
+     
    }
  };
