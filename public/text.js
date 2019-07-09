@@ -44,8 +44,6 @@
 
  function escapeSpecialChars(regex) {
    return regex.replace(/([()[{*+.$^\\|?])/g, '\\$1');
-   var inputMessage = "Hello World!";
-   var result = inputMessage.fontcolor("green");
  }
 
  document.getElementById('inputMessage').oninput = function() {
