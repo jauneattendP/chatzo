@@ -1,7 +1,8 @@
-body{background-color:rgb(255, 255, 255);font-size:1em;}
+body{background-color:rgb(255, 255, 255);font:700 1em/1.38 Montserrat;color:rgb(255, 255, 255);}
 
-.element{float:left;width:100%;height:46px;background-color:#3e4c5e;}
+.element{position:relative;float:left;z-index:0;width:100%;height:31px;background-color:#fa5e59;}
 
+.text{position:absolute;top:3px;left:0;right:0;z-index:1;width:36.5%;min-height:13px;margin:0 auto;font-size:1em;text-align:center;color:rgb(255, 255, 255);}
 .scroller {
   height: 900px;
   max-height: 100%;

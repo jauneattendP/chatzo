@@ -103,8 +103,9 @@ ul {
 
 
 .chatArea {
-  height: 100%;
-  padding-bottom: 60px;
+  height: 80%;
+  padding-bottom: 100px;
+  position: center;
 }
 
 .messages {
