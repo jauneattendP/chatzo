@@ -18,6 +18,7 @@ $(function() {
   var typing = false;
   var lastTypingTime;
   var $currentInput = $usernameInput.focus();
+  var aSound = false;
   
 
   var socket = io();
