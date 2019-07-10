@@ -23,13 +23,14 @@
    "vagin": "🍑",
    "pussy": "🍑",
    // Orthographe
-    "salu": "Salut",
-    "slt": "Salut ",
+    "slt": "Salut",
     "bjr": "Bonjour",
     "a+": "bye",
     "cimer": "merci",
     "chatezo":"chatzo",
     "chattzo":"chatzo",
+    "svp":"s'il vous plait",
+    "tmtc":"toi-même tu sais",
    // +
    "lul": "😂",
    "/funfact": "#funfact la terre est ronde🌍",
