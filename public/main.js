@@ -18,12 +18,8 @@ $(function() {
   var typing = false;
   var lastTypingTime;
   var $currentInput = $usernameInput.focus();
-  var aSound = document.createElement('audio');
-     aSound.setAttribute('src', 'https://cdn.glitch.com/42c36f42-0b48-440a-b3e9-02c1733984be%2Fbeep.wav?v=1562719534778');
-     aSound.play();
-  
-
   var socket = io();
+  var play = document.getElementById("audio");
   function setUsername () {
     username = cleanInput($usernameInput.val().trim());
     if (username) {
@@ -87,6 +83,10 @@ $(function() {
     if (!options) {
       options = {};
     }
+    function play() {sound.currentTime = 0;
+        sound.play();
+     }
+    
     if (typeof options.fade === 'undefined') {
       options.fade = true;
     }
@@ -137,7 +137,6 @@ $(function() {
     for (var i = 0; i < username.length; i++) {
        hash = username.charCodeAt(i) + (hash << 5) - hash;
     }
-    // Calculate color
     var index = Math.abs(hash % COLORS.length);
     return COLORS[index];
   }
