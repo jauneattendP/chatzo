@@ -61,6 +61,8 @@ ul {
   padding-bottom: 10px;
   text-align: center;
   width: 300px;
+  border:8px solid rgb(255, 255, 255);
+  border-radius:49px;background-color:#252c33;
 }
 
 .login.page .title {
