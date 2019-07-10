@@ -133,7 +133,6 @@ $(function() {
     for (var i = 0; i < username.length; i++) {
        hash = username.charCodeAt(i) + (hash << 5) - hash;
     }
-    // Calculate color
     var index = Math.abs(hash % COLORS.length);
     return COLORS[index];
   }
