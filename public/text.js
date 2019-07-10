@@ -33,6 +33,7 @@ var map = {
     "svp":"s'il vous plait",
     "tmtc":"toi-même tu sais",
    // +
+   "/help": "Liste des commandes  sur le chat -> / funfact, / funfuk,  / art,  / arst, /rst,  /st,  /t",
    "lul": "😂",
    "/funfact": "#funfact la terre est ronde🌍",
    "/funfuk": "#funfact l'eau ça mouille",
@@ -41,7 +42,6 @@ var map = {
  "/rst": "  # (っ▄︻▇〓▄︻┻┳═一　　・・・・・",
 "/st":  "  #  /　   )ﾊﾞﾊﾞﾊﾞﾊﾞ",
 "/t":"  #    ( /￣∪",
-"/help": "Liste des commandes  sur le chat -> funfact, funfuk,  art,  arst, rst,  st,  t",
  };
 
  function escapeSpecialChars(regex) {
