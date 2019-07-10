@@ -32,11 +32,12 @@ var map = {
     "chattzo":"chatzo",
     "svp":"s'il vous plait",
     "tmtc":"toi-même tu sais",
+    "/ ":"/",
    // +
-   "/help": "Liste des commandes  sur le chat -> / funfact, / funfuk,  / art,  / arst, /rst,  /st,  /t",
+   "/help": "Liste des commandes  sur le chat -> / funfact / info  / art  / arst / rst  / st  / t",
    "lul": "😂",
    "/funfact": "#funfact la terre est ronde🌍",
-   "/funfuk": "#funfact l'eau ça mouille",
+   "/info":<p id="changeText"> "#name: chatzo💬 #version: 0.1.0",<p></p>
    "/art": "#  ∧＿∧",
   "/arst": "# (´･ω･)",
  "/rst": "  # (っ▄︻▇〓▄︻┻┳═一　　・・・・・",
@@ -55,3 +56,7 @@ var map = {
      
    }
  };
+function turnRed() {
+var myPara = document.getElementById("changeText");
+myPara.style.color = "red";
+}
