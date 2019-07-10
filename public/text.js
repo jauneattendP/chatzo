@@ -37,7 +37,7 @@ var map = {
    "/help": "Liste des commandes  sur le chat -> / funfact / info  / art  / arst / rst  / st  / t",
    "lul": "😂",
    "/funfact": "#funfact la terre est ronde🌍",
-   "/info":<p id="changeText"> "#name: chatzo💬 #version: 0.1.0",<p></p>
+  "/info": "#name: chatzo💬 #version: 0.1.0",
    "/art": "#  ∧＿∧",
   "/arst": "# (´･ω･)",
  "/rst": "  # (っ▄︻▇〓▄︻┻┳═一　　・・・・・",
@@ -56,7 +56,3 @@ var map = {
      
    }
  };
-function turnRed() {
-var myPara = document.getElementById("changeText");
-myPara.style.color = "red";
-}
