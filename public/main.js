@@ -18,7 +18,9 @@ $(function() {
   var typing = false;
   var lastTypingTime;
   var $currentInput = $usernameInput.focus();
-  var aSound = false;
+  var aSound = document.createElement('audio');
+     aSound.setAttribute('src', 'https://cdn.glitch.com/42c36f42-0b48-440a-b3e9-02c1733984be%2Fbeep.wav?v=1562719534778');
+     aSound.play();
   
 
   var socket = io();
@@ -43,6 +45,7 @@ $(function() {
       });
       socket.emit('new message', message);
     }
+     
   }
   function log (message, options) {
     var $el = $('<li>').addClass('log').text(message);
