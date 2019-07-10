@@ -19,7 +19,6 @@ $(function() {
   var lastTypingTime;
   var $currentInput = $usernameInput.focus();
   var socket = io();
-  var play = document.getElementById("audio");
   function setUsername () {
     username = cleanInput($usernameInput.val().trim());
     if (username) {
@@ -83,9 +82,6 @@ $(function() {
     if (!options) {
       options = {};
     }
-    function play() {sound.currentTime = 0;
-        sound.play();
-     }
     
     if (typeof options.fade === 'undefined') {
       options.fade = true;
@@ -137,6 +133,7 @@ $(function() {
     for (var i = 0; i < username.length; i++) {
        hash = username.charCodeAt(i) + (hash << 5) - hash;
     }
+    // Calculate color
     var index = Math.abs(hash % COLORS.length);
     return COLORS[index];
   }
