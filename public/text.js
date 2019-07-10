@@ -1,4 +1,5 @@
- var map = {
+
+var map = {
     //   Basique emoji
    "<3": "\u2764\uFE0F",
    "</3": "\uD83D\uDC94",

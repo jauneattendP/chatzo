@@ -1,3 +1,35 @@
+.scroller {
+  height: 900px;
+  max-height: 100%;
+  background: var(--background-color);
+  overflow-y: auto;
+  margin: 0 auto;
+  padding: 0 6px;
+  /* The magic is here */
+  scrollbar-color: var(--slider-color) var(--track-color);
+  /* Firefox only supports thin or auto.
+   * At least on Win10, it does its job and removes the steppers and makes it pleasantly thin. */
+  scrollbar-width: thin;
+  /* For padding the slider */
+  border-right: 3px solid var(--background-color);
+  flex-grow: 1;
+}
+.scroller.hidden-scrollbar {
+  scrollbar-width: none !important;
+  border-right: none !important;
+}
+}
+.dark {
+  background: #2f3136;
+  --mention-background: rgba(114, 137, 218, 0.1);
+  --mention-color: #7289da;
+  --divider-color: #3e4147;
+  --slider-color: #191a1d;
+  --track-color: #2a2c30;
+  --background-color: #36393f;
+  --body-color: rgb(220, 221, 222);
+  --username-color: white;
+}
 
 html, body {
     background: #252C33;
