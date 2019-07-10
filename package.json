@@ -8,6 +8,7 @@
 	},
 	"dependencies": {
 		"coffee-script": "*",
+		"emoji-data-css": "^1.0.1",
 		"express": "^4.12.4",
 		"socket.io": "*"
 	},
