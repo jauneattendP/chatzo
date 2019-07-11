@@ -46,7 +46,7 @@ var map = {
    "/help": "Liste des commandes  sur le chat -> / funfact / info  / art  / arst / rst  / st  / t",
    "lul": "😂",
    "/funfact": "#funfact la terre est ronde🌍",
-  "/info": "#name: chatzo💬 #version: 0.1.0",
+  "/info": "#name: chatzo💬 #version: 0.2",
    "/art": "#  ∧＿∧",
   "/arst": "# (´･ω･)",
  "/rst": "  # (っ▄︻▇〓▄︻┻┳═一　　・・・・・",
