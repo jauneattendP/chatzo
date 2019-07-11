@@ -42,16 +42,16 @@ var map = {
     "pq":"pourquoi",
     "pk":"Pakistan",
     "csa":"Conseil supérieur de l'audiovisuel ",
-   // +
-   "/help": "Liste des commandes  sur le chat -> / funfact / info  / art  / arst / rst  / st  / t",
-   "lul": "😂",
+    "lul": "😂",
+   // commands
+   "/help": "Liste des commandes disponible sur -> https://chatzo.glitch.me/commands.text",
    "/funfact": "#funfact la terre est ronde🌍",
   "/info": "#name: chatzo💬 #version: 0.2",
-   "/art": "#  ∧＿∧",
-  "/arst": "# (´･ω･)",
- "/rst": "  # (っ▄︻▇〓▄︻┻┳═一　　・・・・・",
-"/st":  "  #  /　   )ﾊﾞﾊﾞﾊﾞﾊﾞ",
-"/t":"  #    ( /￣∪",
+   "/𝗮𝗿𝘁": "#  ∧＿∧",
+  "/𝗮𝗿𝘀𝘁": "# (´･ω･)",
+ "/𝗿𝘀𝘁": "  # (っ▄︻▇〓▄︻┻┳═一　　・・・・・",
+"/𝘀𝘁":  "  #  /　   )ﾊﾞﾊﾞﾊﾞﾊﾞ",
+"/𝘁":"  #    ( /￣∪",
  };
 
  function escapeSpecialChars(regex) {
