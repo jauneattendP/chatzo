@@ -33,7 +33,6 @@ var map = {
     "Chatzo":"Chatzo",
     "svp":"s'il vous plait",
     "tmtc":"toi-même tu sais",
-    "/ ":"/",
     "avt":"avant",
     "cpdt":"cependant",
     "gvt":"Gouvernement",
