@@ -33,6 +33,10 @@ var map = {
     "svp":"s'il vous plait",
     "tmtc":"toi-même tu sais",
     "/ ":"/",
+    "avt":"avant",
+    "cpdt":"cependant",
+    "gvt":"Gouvernement",
+    "gov":"Gouvernement",
    // +
    "/help": "Liste des commandes  sur le chat -> / funfact / info  / art  / arst / rst  / st  / t",
    "lul": "😂",
