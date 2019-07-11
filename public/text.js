@@ -37,6 +37,10 @@ var map = {
     "cpdt":"cependant",
     "gvt":"Gouvernement",
     "gov":"Gouvernement",
+    "pcq":"parce que",
+    "pq":"pourquoi",
+    "pk":"Pakistan",
+    "csa":"Conseil supérieur de l'audiovisuel ",
    // +
    "/help": "Liste des commandes  sur le chat -> / funfact / info  / art  / arst / rst  / st  / t",
    "lul": "😂",
