@@ -52,3 +52,6 @@ io.on('connection', function (socket) {
     }
   });
 });
+app.get('*', function(req, res){
+  res.send('404', 404);
+});
