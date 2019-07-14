@@ -1,13 +1,30 @@
 
-body{background-color:rgb(255, 255, 255);font:700 1em/1.38 Montserrat;color:rgb(255, 255, 255);}
 
 .element{position:relative;float:left;z-index:0;width:100%;height:31px;background-color:#fa5e59;}
 
 .text{position:absolute;top:3px;left:0;right:0;z-index:1;width:36.5%;min-height:13px;margin:0 auto;font-size:1em;text-align:center;color:rgb(255, 255, 255);}
 
+body{min-width:none;min-height:nonepx;background-color:rgb(255, 255, 255);font-size:1em;-webkit-transform:none;-moz-transform:none;-o-transform:none;-ms-transform:none;transform:none;-webkit-transition:none;-moz-transition:none;-o-transition:none;-ms-transition:none;transition:none;-webkit-filter:none;-moz-filter:none;-o-filter:none;-ms-filter:none;filter:none;}
 
+.image{display:block;position:relative;float:left;clear:both;z-index:1;width:56px;height:auto;margin:-56px 0 0 88.8436399999%;overflow:hidden;}
+
+._button{display:block;position:relative;float:left;z-index:0;width:4.8024012006%;min-width:none;height:73px;min-height:nonepx;margin:196px 0 0 88.1432899999%;border-radius:55px;background-color:rgb(115, 137, 220);font:400 1em/1.38 Arial;text-align:center;color:rgb(0, 0, 0);-webkit-transform:none;-moz-transform:none;-o-transform:none;-ms-transform:none;transform:none;-webkit-transition:none;-moz-transition:none;-o-transition:none;-ms-transition:none;transition:none;-webkit-filter:none;-moz-filter:none;-o-filter:none;-ms-filter:none;filter:none;}
+
+@media(max-width: 1200px) {
+.image{position:relative;clear:none;z-index:1;height:auto;margin-top:1558px;margin-left:0.67839%;}
+
+._button{position:relative;z-index:0;margin-top:1541px;margin-left:83.46224%;}
+}
+
+@media(max-width: 360px) {
+body{font-size:1em;}
+
+.image{position:relative;clear:both;z-index:1;width:43px;height:auto;margin-top:-44px;margin-left:72.29167%;}
+
+._button{position:relative;z-index:0;width:17.2222222222%;height:58px;margin-top:723px;margin-left:69.7222199999%;}
+}
 html, body {
     background: #252C33;
 font-family: 'Montserrat', sans-serif;
 {
-  
+ 
