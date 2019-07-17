@@ -43,7 +43,7 @@ var map = {
     "csa":"Conseil supérieur de l'audiovisuel ",
     "lul": "😂",
    // commands
-   "/help": "Liste des commandes disponible sur -> https://chatzo.glitch.me/commands.text",
+   "/help": "Liste des commandes disponible sur -> https://chatzo.glitch.me/commands",
    "/funfact": "#funfact la terre est ronde🌍",
    "/𝗶𝗻𝗳𝗼": "#name: chatzo💬 #version: 0.2",
    "/𝗮𝗿𝘁": "#  ∧＿∧",
