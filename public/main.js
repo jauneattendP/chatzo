@@ -32,7 +32,7 @@ $(function() {
   function sendMessage () {
     var message = $inputMessage.val();
     message = cleanInput(message);
-    if (message && connected) {
+    if (message) {
       $inputMessage.val('');
       addChatMessage({
         username: username,
@@ -139,14 +139,18 @@ $(function() {
     });
   }
   function getUsernameColor (username) {
-    var hash = 7;
-    for (var i = 0; i < username.length; i++) {
+    /*let hash = 7;
+    for (let i = 0; i < username.length; i++) {
        hash = username.charCodeAt(i) + (hash << 5) - hash;
     }
-    var index = Math.abs(hash % COLORS.length);
-    return COLORS[index];
+    let index = Math.abs(hash % COLORS.length);*/
+    return COLORS[randint(0, COLORS.length)];
   }
-
+  
+  function randint(min, max){
+    return parseInt(Math.random()*(max-min)+min)
+  }
+  
   $window.keydown(function (event) {
     if (!(event.ctrlKey || event.metaKey || event.altKey)) {
       $currentInput.focus();

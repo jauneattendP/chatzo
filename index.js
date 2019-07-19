@@ -39,7 +39,7 @@ io.on('connection', (socket) => {
       username: socket.username
     });
   });
-  socket.on('disconnect', function () {
+  socket.once('disconnect', function () {
 
       --numUsers;
       socket.broadcast.emit('disconnect', {
