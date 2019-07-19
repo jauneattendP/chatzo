@@ -69,7 +69,7 @@ $(function() {
       $typingMessages.remove();
     }
     
-    const $imgDiv = data.user.admin ? $(`<img />`).text("https://cdn.glitch.com/42c36f42-0b48-440a-b3e9-02c1733984be%2FNouveau%20projet-1.png?v=1563540690693") : $(``)
+    const $imgDiv = data.user.options.admin ? $(`<img />`).attr("src", "https://cdn.glitch.com/42c36f42-0b48-440a-b3e9-02c1733984be%2FNouveau%20projet-1.png?v=1563540690693") : $(``)
     const $usernameDiv = getSpan("username", data.user.username, options.colorName || getUsernameColor(data.user.username))
     const $dot = getSpan("", ": ", "white")
     

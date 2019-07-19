@@ -28,7 +28,7 @@ io.on('connection', (socket) => {
     else user = users.find(user => user.username === name);
     socket.emit('response', {
       type:"getuser",
-      data:user,
+      value:user,
     })
     
   })
