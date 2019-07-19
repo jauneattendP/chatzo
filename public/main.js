@@ -43,8 +43,9 @@ $(function() {
      
   }
   function log (message, options) {
-    const $el = $('<li>').addClass('log').text(message);
-    addMessageElement($el, options);
+    /*const $el = $('<li>').addClass('log').text(message);
+    addMessageElement($el, options);*/
+      addChatMessage({username: "🤖Chatzo-bot", message}, {colorName: "#89D626", colorMsg: "#2689D6"})
   }
   function addChatMessage (data, options) {
     var $typingMessages = getTypingMessages(data);
@@ -54,11 +55,12 @@ $(function() {
       $typingMessages.remove();
     }
 
-    var $usernameDiv = $('<span class="username"/>')
-      .text(data.username)
-      .css('color', getUsernameColor(data.username));
+    var $usernameDiv = getSpan("username", data.username, options.colorName || getUsernameColor(data.username))
+    
     var $messageBodyDiv = $('<span class="messageBody">')
-      .text(data.message);
+      .text(data.message)
+      .css('color', options.colorMsg || "white");
+      
     var typingClass = data.typing ? 'typing' : '';
     var $messageDiv = $('<li class="message"/>')
       .data('username', data.username)
@@ -67,6 +69,15 @@ $(function() {
 
     addMessageElement($messageDiv, options);
   }
+  
+  function getSpan(clazz, text, color){
+    
+    return $(`<span class="${clazz}"/>`)
+      .text(text)
+      .css('color', color);
+    
+  }
+  
   function addChatTyping (data) {
     data.typing = true;
     data.message = '✍️';
@@ -168,17 +179,22 @@ $(function() {
     });*/
     //addParticipantsMessage(data);
   });
-  socket.on('new message', function (data) {
+  socket.on('new message', (data) => {
     addChatMessage(data);
   });
-  socket.on('typing', function (data) {
+  socket.on('typing', (data) => {
     addChatTyping(data);
   });
-  socket.on('stop typing', function (data) {
+  socket.on('stop typing', (data) => {
     removeChatTyping(data);
   });
   
   socket.on('user joined', (data) => {
+    //numUsers
+    log(`${data.username} a rejoint ! Nous sommes désormais ${data.numUsers}`)
+  })
+  
+  socket.on('user left', (data) => {
     
   })
 });
