@@ -1,15 +1,13 @@
->![le logo de chatzo](https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/microsoft/209/speech-balloon_1f4ac.png)
-# Chatzo 0.2 
+>  ![le logo de chatzo](https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/microsoft/209/speech-balloon_1f4ac.png)
 
-* chatzo  c'est quoi 
+  chatzo v0.2 
+=================
 
->Chatzo est un projet qui as pour but de créer une web-chatroom
->opensource et anonyme
+`chatzo  c'est quoi`
+>chatzo est un projet qui as pour but de créer une web-chatroom
+opensource et anonyme
 
-
-
-
-[socket.io](http://socket.io/) 
+conçu a partir de [ socket.io](https://socket.io/).
 
 
 
