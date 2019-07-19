@@ -33,7 +33,7 @@ io.on('connection', (socket) => {
     
   })
   
-  let connection = (username) => {
+  const connection = (username) => {
     
     if(users.find(user => user.username === username)){
       
@@ -61,10 +61,12 @@ io.on('connection', (socket) => {
     socket.broadcast.emit('login', {
       user: socket.user,
       numUsers
-    });
+    }
   
-  socket.on('add user', 
-  });
+  )
+  };
+  
+  socket.on('add user', connection);
   
   socket.on('typing', function () {
     socket.broadcast.emit('typing', socket.user);
