@@ -57,10 +57,12 @@ var map = {
    return regex.replace(/([()[{*+.$^\\|?])/g, '\\$1');
  }
 
- document.getElementById('inputMessage').oninput = function() {
-   for (var i in map) {
-     var regex = new RegExp(escapeSpecialChars(i), 'gim');
-     this.value = this.value = this.value.replace(regex, map[i]);
-     
-   }
- };
+ document.addEventListener('load', () => {
+     document.getElementById('inputMessage').oninput = function() {
+     for (var i in map) {
+       var regex = new RegExp(escapeSpecialChars(i), 'gim');
+       this.value = this.value = this.value.replace(regex, map[i]);
+
+     }
+   }  
+ })

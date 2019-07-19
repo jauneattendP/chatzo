@@ -1,24 +1,24 @@
 $(function() {
   
-  var FADE_TIME = 150; 
-  var TYPING_TIMER_LENGTH = 400; 
-  var COLORS = [
+  const FADE_TIME = 150; 
+  const TYPING_TIMER_LENGTH = 400; 
+  const COLORS = [
     '#e21400', '#91580f', '#f8a700', '#f78b00',
     '#58dc00', '#287b00', '#a8f07a', '#4ae8c4',
     '#3b88eb', '#3824aa', '#a700ff', '#d300e7'
   ];
-  var $window = $(window);
-  var $usernameInput = $('.usernameInput'); 
-  var $messages = $('.messages'); 
-  var $inputMessage = $('.inputMessage'); 
-  var $loginPage = $('.login.page'); 
-  var $chatPage = $('.chat.page'); 
-  var username;
-  var connected = false;
-  var typing = false;
-  var lastTypingTime;
-  var $currentInput = $usernameInput.focus();
-  var socket = io();
+  const $window = $(window);
+  const $usernameInput = $('.usernameInput'); 
+  const $messages = $('.messages'); 
+  const $inputMessage = $('.inputMessage'); 
+  const $loginPage = $('.login.page'); 
+  const $chatPage = $('.chat.page'); 
+  let username;
+  let connected = false;
+  let typing = false;
+  let lastTypingTime;
+  let $currentInput = $usernameInput.focus();
+  const socket = io();
   function setUsername () {
     username = cleanInput($usernameInput.val().trim());
     if (username) {
@@ -163,10 +163,10 @@ $(function() {
   });
   socket.on('login', function (data) {
     connected = true;
-    log(message, {
+    /*log(message, {
       prepend: true
-    });
-    addParticipantsMessage(data);
+    });*/
+    //addParticipantsMessage(data);
   });
   socket.on('new message', function (data) {
     addChatMessage(data);
