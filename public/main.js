@@ -57,14 +57,14 @@ $(function() {
       $typingMessages.remove();
     }
 
-    const $usernameDiv = getSpan("username", data.username, options.colorName || getUsernameColor(data.username))
+    const $usernameDiv = getSpan("username", data.user.username, options.colorName || getUsernameColor(data.user.username))
     const $dot = getSpan("", ": ", "white")
     
     const $messageBodyDiv = getSpan('messageBody', data.message, options.colorMsg || "white")
       
     const typingClass = data.typing ? 'typing' : '';
     const $messageDiv = $('<li class="message"/>')
-      .data('username', data.username)
+      .data('username', data.user.username)
       .addClass(typingClass)
       .append($usernameDiv, $dot, $messageBodyDiv);
 
@@ -137,7 +137,7 @@ $(function() {
   }
   function getTypingMessages (data) {
     return $('.typing.message').filter(function (i) {
-      return $(this).data('username') === data.username;
+      return $(this).data('username') === data.user.username;
     });
   }
   function getUsernameColor (username) {
@@ -190,10 +190,10 @@ $(function() {
   
   socket.on('login', (data) => {
     //numUsers
-    log(`${data.username} a rejoint !😁Nous sommes désormais ${data.numUsers}`)
+    log(`${data.user.username} a rejoint !😁Nous sommes désormais ${data.numUsers}`)
   })
   
   socket.on('disconnectUser', (data) => {
-    log(`${data.username} a quitté !😭Nous sommes désormais ${data.numUsers}`)
+    log(`${data.user.username} a quitté !😭Nous sommes désormais ${data.numUsers}`)
   })
 });

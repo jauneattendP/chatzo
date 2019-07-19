@@ -19,14 +19,18 @@ io.on('connection', (socket) => {
   
   socket.on('new message', function (data) {
     socket.broadcast.emit('new message', {
-      username: socket.username,
+      user: socket.user,
       message: data
     });
   });
   socket.once('add user', (username) => {
     numUsers++;
     
-    socket.user = new User(username, {admin: admins.includes(username)})
+    
+    
+    socket.user = new User(username, {
+      admin: admins.includes(username),
+    })
     
     users.push(socket.user)
     
@@ -50,11 +54,14 @@ io.on('connection', (socket) => {
 
       numUsers--;
       socket.broadcast.emit('disconnectUser', {
-        username: socket.user,
+        user: socket.user,
         numUsers
       });
     
      users.splice(users.indexOf(socket.user), 1 );
+     socket.off('typing')
+     socket.off('stop typing')
+     socket.off('new message')
     
   });
   
