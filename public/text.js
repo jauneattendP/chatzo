@@ -57,11 +57,11 @@ var map = {
    return regex.replace(/([()[{*+.$^\\|?])/g, '\\$1');
  }
 
- document.addEventListener('load', () => {
+ document.addEventListener('input', () => {
      document.getElementById('inputMessage').oninput = function() {
-     for (var i in map) {
-       var regex = new RegExp(escapeSpecialChars(i), 'gim');
-       this.value = this.value = this.value.replace(regex, map[i]);
+     for (let i in map) {
+       const regex = new RegExp(escapeSpecialChars(i), 'gim');
+       this.value = this.value.replace(regex, map[i]);
 
      }
    }  

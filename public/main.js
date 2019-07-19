@@ -43,7 +43,7 @@ $(function() {
      
   }
   function log (message, options) {
-    var $el = $('<li>').addClass('log').text(message);
+    const $el = $('<li>').addClass('log').text(message);
     addMessageElement($el, options);
   }
   function addChatMessage (data, options) {
@@ -177,4 +177,8 @@ $(function() {
   socket.on('stop typing', function (data) {
     removeChatTyping(data);
   });
+  
+  socket.on('user joined', (data) => {
+    
+  })
 });
