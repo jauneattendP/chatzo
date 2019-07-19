@@ -9,10 +9,14 @@ server.listen(port, function () {
   console.log('Server listening at port %d', port);
 });
 app.use(express.static('public'));
-var numUsers = 0;
+let numUsers = 0;
 
-io.on('connection', function (socket) {
-  var addedUser = false;
+io.on('connection', (socket) => {
+  socket.broadcast.emit('user join', {username: socket.username, numUsers})
+})
+
+io.on('connection', (socket) => {
+  let addedUser = false;
   socket.on('new message', function (data) {
     socket.broadcast.emit('new message', {
       username: socket.username,

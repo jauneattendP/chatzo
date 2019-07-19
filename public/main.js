@@ -55,17 +55,16 @@ $(function() {
       $typingMessages.remove();
     }
 
-    var $usernameDiv = getSpan("username", data.username, options.colorName || getUsernameColor(data.username))
+    const $usernameDiv = getSpan("username", data.username, options.colorName || getUsernameColor(data.username))
+    const $dot = getSpan("", ": ", "white")
     
-    var $messageBodyDiv = $('<span class="messageBody">')
-      .text(data.message)
-      .css('color', options.colorMsg || "white");
+    const $messageBodyDiv = getSpan('messageBody', data.message, options.colorMsg || "white")
       
-    var typingClass = data.typing ? 'typing' : '';
-    var $messageDiv = $('<li class="message"/>')
+    const typingClass = data.typing ? 'typing' : '';
+    const $messageDiv = $('<li class="message"/>')
       .data('username', data.username)
       .addClass(typingClass)
-      .append($usernameDiv, $messageBodyDiv);
+      .append($usernameDiv, $dot, $messageBodyDiv);
 
     addMessageElement($messageDiv, options);
   }
@@ -195,6 +194,6 @@ $(function() {
   })
   
   socket.on('user left', (data) => {
-    
+    log(`${data.username} a quitté ! Nous sommes désormais ${data.numUsers}`)
   })
 });
