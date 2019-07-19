@@ -13,10 +13,6 @@ let numUsers = 0;
 
 io.on('connection', (socket) => {
   socket.broadcast.emit('login', {username: socket.username, numUsers})
-})
-
-io.on('connection', (socket) => {
-
   socket.once('add user', (username) => {
     socket.username = username;
     ++numUsers;
@@ -26,27 +22,28 @@ io.on('connection', (socket) => {
       numUsers: numUsers
     });
   });
-  socket.on('typing', function () {
-    socket.broadcast.emit('typing', {
-      username: socket.username
+  });
+  io.on('typing', (username) => {
+    io.broadcast.emit('typing', {
+      username: username
     });
   });
-  socket.on('stop typing', function () {
-    socket.broadcast.emit('stop typing', {
-      username: socket.username
+  io.on('stop typing', (username)  => {
+    io.broadcast.emit('stop typing', {
+      username: username
     });
   });
-  socket.on('disconnect', function () {
+  io.on('disconnect', (username)  => {
       --numUsers;
-      socket.broadcast.emit('disconnect', {
-        username: socket.username,
+      io.broadcast.emit('disconnect', {
+        username: username,
         numUsers: numUsers
       });
   });
-  socket.on('new message', function (data) {
-    socket.broadcast.emit('new message', {
-      username: socket.username,
+  io.on('new message', (data) => {
+    io.broadcast.emit('new message', {
+      username: data.username,
       message: data
     });
   })
-    });
+    
