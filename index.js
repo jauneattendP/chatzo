@@ -14,18 +14,15 @@ app.use(express.static('public'));
 let numUsers = 0;
 
 io.on('connection', (socket) => {
-  let addedUser = false;
   socket.on('new message', function (data) {
     socket.broadcast.emit('new message', {
       username: socket.username,
       message: data
     });
   });
-  socket.on('add user', (username) => {
-    if (addedUser) return;
+  socket.once('add user', (username) => {
     socket.username = username;
     ++numUsers;
-    addedUser = true;
 
     socket.broadcast.emit('login', {
       username: socket.username,
@@ -43,12 +40,12 @@ io.on('connection', (socket) => {
     });
   });
   socket.on('disconnect', function () {
-    if (addedUser) {
+
       --numUsers;
       socket.broadcast.emit('disconnect', {
         username: socket.username,
         numUsers: numUsers
       });
-    }
+    
   });
 });

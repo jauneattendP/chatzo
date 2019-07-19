@@ -171,13 +171,7 @@ $(function() {
   $inputMessage.click(function () {
     $inputMessage.focus();
   });
-  socket.on('login', function (data) {
-    connected = true;
-    /*log(message, {
-      prepend: true
-    });*/
-    //addParticipantsMessage(data);
-  });
+  
   socket.on('new message', (data) => {
     addChatMessage(data);
   });
