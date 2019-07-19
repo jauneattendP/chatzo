@@ -13,37 +13,44 @@ let numUsers = 0;
 
 io.on('connection', (socket) => {
   socket.broadcast.emit('login', {username: socket.username, numUsers})
-  socket.once('add user', (username) => {
+})
+
+io.on('connection', (socket) => {
+  let addedUser = false;
+  socket.on('new message', function (data) {
+    socket.broadcast.emit('new message', {
+      username: socket.username,
+      message: data
+    });
+  });
+  socket.on('add user', (username) => {
+    if (addedUser) return;
     socket.username = username;
     ++numUsers;
+    addedUser = true;
 
     socket.broadcast.emit('login', {
       username: socket.username,
       numUsers: numUsers
     });
   });
-  });
-  io.on('typing', (username) => {
-    io.broadcast.emit('typing', {
-      username: username
+  socket.on('typing', function () {
+    socket.broadcast.emit('typing', {
+      username: socket.username
     });
   });
-  io.on('stop typing', (username)  => {
-    io.broadcast.emit('stop typing', {
-      username: username
+  socket.on('stop typing', function () {
+    socket.broadcast.emit('stop typing', {
+      username: socket.username
     });
   });
-  io.on('disconnect', (username)  => {
+  socket.on('disconnect', function () {
+    if (addedUser) {
       --numUsers;
-      io.broadcast.emit('disconnect', {
-        username: username,
+      socket.broadcast.emit('disconnect', {
+        username: socket.username,
         numUsers: numUsers
       });
+    }
   });
-  io.on('new message', (data) => {
-    io.broadcast.emit('new message', {
-      username: data.username,
-      message: data
-    });
-  })
-    
+});

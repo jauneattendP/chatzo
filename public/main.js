@@ -34,18 +34,14 @@ $(function() {
     message = cleanInput(message);
     if (message && connected) {
       $inputMessage.val('');
-      addChatMessage({message, username});
-      emit('new message', message);
+      addChatMessage({
+        username: username,
+        message: message
+      });
+      socket.emit('new message', message);
     }
      
   }
-  
-  function emit(str, data){
-    
-    socket.emit(str, data ? {data, username} : username)
-    
-  }
-  
   function log (message, options) {
     /*const $el = $('<li>').addClass('log').text(message);
     addMessageElement($el, options);*/
@@ -123,7 +119,7 @@ $(function() {
     if (connected) {
       if (!typing) {
         typing = true;
-        emit('typing');
+        socket.emit('typing');
       }
       lastTypingTime = (new Date()).getTime();
 
@@ -131,7 +127,7 @@ $(function() {
         var typingTimer = (new Date()).getTime();
         var timeDiff = typingTimer - lastTypingTime;
         if (timeDiff >= TYPING_TIMER_LENGTH && typing) {
-          emit('stop typing');
+          socket.emit('stop typing');
           typing = false;
         }
       }, TYPING_TIMER_LENGTH);
@@ -158,7 +154,7 @@ $(function() {
     if (event.which === 13) {
       if (username) {
         sendMessage();
-        emit('stop typing');
+        socket.emit('stop typing');
         typing = false;
       } else {
         setUsername();
