@@ -12,7 +12,7 @@ app.use(express.static('public'));
 let numUsers = 0;
 
 io.on('connection', (socket) => {
-  socket.broadcast.emit('user join', {username: socket.username, numUsers})
+  socket.broadcast.emit('login', {username: socket.username, numUsers})
 })
 
 io.on('connection', (socket) => {
@@ -23,7 +23,7 @@ io.on('connection', (socket) => {
       message: data
     });
   });
-  socket.on('add user', function (username) {
+  socket.on('add user', (username) => {
     if (addedUser) return;
     socket.username = username;
     ++numUsers;
