@@ -99,6 +99,7 @@ ul {
   font-size: 100%;
   color: white;
   background-color:#3E4C5E;
+  
 }
 
 .log {
@@ -137,5 +138,6 @@ ul {
   position: absolute;
   right: 0;
   width: 100%;
+  padding-left: 10px;
  
 }
