@@ -22,6 +22,10 @@ $(function() {
   function setUsername () {
     let username = cleanInput($usernameInput.val().trim());
     socket.emit('add user', username);
+    socket.emit(username);
+    socket.once('response', (data) => {
+      if(data.type === "getuser") addChatMessage(data.value)
+    })
   }
   
   function sendMessage () {
@@ -56,15 +60,15 @@ $(function() {
       $typingMessages.remove();
     }
     
-    const $imgDiv = $(`<img href=https://cdn.glitch.com/42c36f42-0b48-440a-b3e9-02c1733984be%2FNouveau%20projet-1.png?v=1563540690693`)
-    const $usernameDiv = getSpan("username", data.username, options.colorName || getUsernameColor(data.username))
+    const $imgDiv = data.user.admin ? $(`<img />`).text("https://cdn.glitch.com/42c36f42-0b48-440a-b3e9-02c1733984be%2FNouveau%20projet-1.png?v=1563540690693") : $(``)
+    const $usernameDiv = getSpan("username", data.user.username, options.colorName || getUsernameColor(data.user.username))
     const $dot = getSpan("", ": ", "white")
     
     const $messageBodyDiv = getSpan('messageBody', data.message, options.colorMsg || "white")
       
     const typingClass = data.typing ? 'typing' : '';
     const $messageDiv = $('<li class="message"/>')
-      .data('username', data.username)
+      .data('username', data.user.username)
       .addClass(typingClass)
       .append($imgDiv, $usernameDiv, $dot, $messageBodyDiv);
 
@@ -196,7 +200,9 @@ $(function() {
     log(`${data.user.username} a quitté !😭Nous sommes désormais ${data.numUsers}`)
   })
   
-  socket.on('loginResp', (data) => {
+  socket.on('response', (data) => {
+    
+    if(data.type !== "loginresp") return;
     
     if(data.valid){
       $loginPage.fadeOut();

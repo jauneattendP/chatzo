@@ -22,6 +22,17 @@ io.on('connection', (socket) => {
     });
   });
   
+  socket.on('getuser', (name) => {
+    let user;
+    if(!name) user = socket.user
+    else user = users.find(user => user.username === name);
+    socket.emit('response', {
+      type:"getuser",
+      data:user,
+    })
+    
+  })
+  
   socket.once('add user', (username) => {
     
     if(users.find(user => user.username === username)){
