@@ -44,7 +44,13 @@ $(function() {
   function log (message, options) {
     /*const $el = $('<li>').addClass('log').text(message);
     addMessageElement($el, options);*/
-    addChatMessage({username: "🤖Chatzo-bot", message}, {colorName: "#89D626", colorMsg: "#2689D6"})
+    addChatMessage(
+      {
+      user:{
+        username: "🤖Chatzo-bot"
+      }, message
+    }
+    , {colorName: "#89D626", colorMsg: "#2689D6"})
     const audio = new Audio('assets/beep.wav');
     audio.play();
   }
@@ -55,15 +61,16 @@ $(function() {
       options.fade = false;
       $typingMessages.remove();
     }
-
-    const $usernameDiv = getSpan("username", data.user.username, options.colorName || getUsernameColor(data.user.username))
+    
+    
+    const $usernameDiv = getSpan("username", data.username, options.colorName || getUsernameColor(data.username))
     const $dot = getSpan("", ": ", "white")
     
     const $messageBodyDiv = getSpan('messageBody', data.message, options.colorMsg || "white")
       
     const typingClass = data.typing ? 'typing' : '';
     const $messageDiv = $('<li class="message"/>')
-      .data('username', data.user.username)
+      .data('username', data.username)
       .addClass(typingClass)
       .append($usernameDiv, $dot, $messageBodyDiv);
 
@@ -187,16 +194,7 @@ $(function() {
     removeChatTyping(data);
   });
   
-  socket.on('login', (data) => {
-    
-    if(data.user.username === username){
-      $loginPage.fadeOut();
-      $chatPage.show();
-      $loginPage.off('click');
-      $currentInput = $inputMessage.focus();
-      return;
-    }
-    
+  socket.on('login', (data) => {    
     log(`${data.user.username} a rejoint !😁Nous sommes désormais ${data.numUsers}`)
   })
   
@@ -204,7 +202,17 @@ $(function() {
     log(`${data.user.username} a quitté !😭Nous sommes désormais ${data.numUsers}`)
   })
   
-  socket.on('loginResp', (data))
+  socket.on('loginResp', (data) => {
+    
+    if(data.valid){
+      $loginPage.fadeOut();
+      $chatPage.show();
+      $loginPage.off('click');
+      $currentInput = $inputMessage.focus();
+      return;
+    }
+    
+  })
   
 });
 
