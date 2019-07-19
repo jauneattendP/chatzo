@@ -5,7 +5,7 @@
 
 `chatzo  c'est quoi`
 =================
-[chatzo](https://chatzo.glitch.me/) est un projet qui as pour but de créer une web-chatroom
+[chatzo](https://chatzo.glitch.me/) est un projet qui vise à créer une web-chatroom
 opensource et anonyme
 
 conçu a partir de [ socket.io](https://socket.io/).
