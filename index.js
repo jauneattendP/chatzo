@@ -12,10 +12,6 @@ app.use(express.static('public'));
 let numUsers = 0;
 
 io.on('connection', (socket) => {
-  socket.broadcast.emit('login', {username: socket.username, numUsers})
-})
-
-io.on('connection', (socket) => {
   let addedUser = false;
   socket.on('new message', function (data) {
     socket.broadcast.emit('new message', {
