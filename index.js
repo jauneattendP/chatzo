@@ -6,6 +6,8 @@ const io = require('socket.io')(server);
 const port = process.env.PORT || 3000;
 const Discord = require('discord.js')
 const bot = new Discord.Client()
+const users = []
+const admins = ["LeRoiDesKiwis", "jauneattend", "mat"]
 
 server.listen(port, function () {
   console.log('Server listening at port %d', port);
@@ -22,7 +24,9 @@ io.on('connection', (socket) => {
   });
   socket.once('add user', (username) => {
     socket.username = username;
-    ++numUsers;
+    numUsers++;
+    
+    if(admins.)
 
     socket.broadcast.emit('login', {
       username: socket.username,
@@ -40,8 +44,10 @@ io.on('connection', (socket) => {
     });
   });
   socket.once('disconnect', function () {
+    
+      if(!socket.username) return;
 
-      --numUsers;
+      numUsers--;
       socket.broadcast.emit('disconnectUser', {
         username: socket.username,
         numUsers
@@ -49,3 +55,10 @@ io.on('connection', (socket) => {
     
   });
 });
+
+function User(username, options){
+  
+  this.username = username;
+  this.options = options;
+  
+}

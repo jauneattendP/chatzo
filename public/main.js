@@ -190,10 +190,10 @@ $(function() {
   
   socket.on('login', (data) => {
     //numUsers
-    log(`${data.username} a rejoint ! Nous sommes désormais ${data.numUsers}`)
+    log(`${data.username} a rejoint !😁Nous sommes désormais ${data.numUsers}`)
   })
   
   socket.on('disconnectUser', (data) => {
-    log(`${data.username} a quitté ! Nous sommes désormais ${data.numUsers}`)
+    log(`${data.username} a quitté !😭Nous sommes désormais ${data.numUsers}`)
   })
 });
