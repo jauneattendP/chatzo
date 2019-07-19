@@ -21,6 +21,7 @@ io.on('connection', (socket) => {
       message: data
     });
   });
+  
   socket.once('add user', (username) => {
     
     if(users.find(user => user.username === username)){
@@ -38,7 +39,7 @@ io.on('connection', (socket) => {
     
     users.push(socket.user)
     
-    socket.emit('loginResp', {valid: true})
+    socket.emit('loginResp', {valid: true, name: username})
     
     socket.broadcast.emit('login', {
       user: socket.user,

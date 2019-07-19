@@ -20,13 +20,9 @@ $(function() {
   let $currentInput = $usernameInput.focus();
   const socket = io();
   function setUsername () {
-    username = cleanInput($usernameInput.val().trim());
-    if (username) {
-      socket.emit('add user', username);
-    }
+    let username = cleanInput($usernameInput.val().trim());
+    socket.emit('add user', username);
   }
-  
-  
   
   function sendMessage () {
     var message = $inputMessage.val();
@@ -46,11 +42,9 @@ $(function() {
     addMessageElement($el, options);*/
     addChatMessage(
       {
-      user:{
-        username: "🤖Chatzo-bot"
-      }, message
-    }
-    , {colorName: "#89D626", colorMsg: "#2689D6"})
+        username: "🤖Chatzo-bot",
+        message
+      }, {colorName: "#89D626", colorMsg: "#2689D6"})
     const audio = new Audio('assets/beep.wav');
     audio.play();
   }
@@ -62,7 +56,7 @@ $(function() {
       $typingMessages.remove();
     }
     
-    
+    const $imgDiv = $(`<img href=https://cdn.glitch.com/42c36f42-0b48-440a-b3e9-02c1733984be%2FNouveau%20projet-1.png?v=1563540690693`)
     const $usernameDiv = getSpan("username", data.username, options.colorName || getUsernameColor(data.username))
     const $dot = getSpan("", ": ", "white")
     
@@ -72,7 +66,7 @@ $(function() {
     const $messageDiv = $('<li class="message"/>')
       .data('username', data.username)
       .addClass(typingClass)
-      .append($usernameDiv, $dot, $messageBodyDiv);
+      .append($imgDiv, $usernameDiv, $dot, $messageBodyDiv);
 
     addMessageElement($messageDiv, options);
   }
@@ -209,7 +203,7 @@ $(function() {
       $chatPage.show();
       $loginPage.off('click');
       $currentInput = $inputMessage.focus();
-      return;
+      username = data.name
     }
     
   })
