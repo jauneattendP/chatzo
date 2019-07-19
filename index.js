@@ -33,14 +33,18 @@ io.on('connection', (socket) => {
     
   })
   
-  socket.once('add user', (username) => {
+  let connection = (username) => {
     
     if(users.find(user => user.username === username)){
       
       socket.emit('loginResp', {})
       
+      console.log(username+"already logged in")
+      
       return;
     }
+    
+    socket.off('add user', connection)
     
     numUsers++;
     
@@ -52,10 +56,14 @@ io.on('connection', (socket) => {
     
     socket.emit('response', {type: 'loginresp', valid: true, name: username})
     
+    console.log("login "+username)
+    
     socket.broadcast.emit('login', {
       user: socket.user,
       numUsers
     });
+  
+  socket.on('add user', 
   });
   
   socket.on('typing', function () {
