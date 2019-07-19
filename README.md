@@ -1,6 +1,6 @@
 >  ![le logo de chatzo](https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/microsoft/209/speech-balloon_1f4ac.png)
 
-  chatzo v0.2 
+  chatzo v0.3 
 =================
 
 `chatzo  c'est quoi`

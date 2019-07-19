@@ -45,7 +45,7 @@ var map = {
    // commands
    "/help": "Liste des commandes disponible sur -> https://chatzo.glitch.me/commands",
    "/funfact": "#funfact la terre est ronde🌍",
-   "/𝗶𝗻𝗳𝗼": "#name: chatzo💬 #version: 0.2",
+   "/𝗶𝗻𝗳𝗼": "#name: chatzo💬 #version: 0.3",
    "/𝗮𝗿𝘁": "#  ∧＿∧",
   "/𝗮𝗿𝘀𝘁": "# (´･ω･)",
  "/𝗿𝘀𝘁": "  # (っ▄︻▇〓▄︻┻┳═一　　・・・・・",

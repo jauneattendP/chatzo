@@ -45,7 +45,7 @@ $(function() {
   function log (message, options) {
     /*const $el = $('<li>').addClass('log').text(message);
     addMessageElement($el, options);*/
-      addChatMessage({username: "🤖Chatzo-bot", message}, {colorName: "#89D626", colorMsg: "#2689D6"})
+      addChatMessage({username: "🤖Chatzo-bot:", message}, {colorName: "#89D626", colorMsg: "#2689D6"})
   }
   function addChatMessage (data, options) {
     var $typingMessages = getTypingMessages(data);
@@ -188,12 +188,12 @@ $(function() {
     removeChatTyping(data);
   });
   
-  socket.on('user joined', (data) => {
+  socket.on('login', (data) => {
     //numUsers
     log(`${data.username} a rejoint ! Nous sommes désormais ${data.numUsers}`)
   })
   
-  socket.on('user left', (data) => {
+  socket.on('disconnect', (data) => {
     log(`${data.username} a quitté ! Nous sommes désormais ${data.numUsers}`)
   })
 });

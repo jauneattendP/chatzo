@@ -28,10 +28,8 @@ io.on('connection', (socket) => {
     socket.username = username;
     ++numUsers;
     addedUser = true;
-    socket.emit('login', {
-      numUsers: numUsers
-    });
-    socket.broadcast.emit('user joined', {
+
+    socket.broadcast.emit('login', {
       username: socket.username,
       numUsers: numUsers
     });
@@ -49,7 +47,7 @@ io.on('connection', (socket) => {
   socket.on('disconnect', function () {
     if (addedUser) {
       --numUsers;
-      socket.broadcast.emit('user left', {
+      socket.broadcast.emit('disconnect', {
         username: socket.username,
         numUsers: numUsers
       });
