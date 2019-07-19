@@ -42,7 +42,7 @@ io.on('connection', (socket) => {
   socket.once('disconnect', function () {
 
       --numUsers;
-      socket.broadcast.emit('disconnect', {
+      socket.broadcast.emit('disconnectUser', {
         username: socket.username,
         numUsers
       });

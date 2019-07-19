@@ -46,7 +46,7 @@ $(function() {
     /*const $el = $('<li>').addClass('log').text(message);
     addMessageElement($el, options);*/
     addChatMessage({username: "🤖Chatzo-bot", message}, {colorName: "#89D626", colorMsg: "#2689D6"})
-    let audio = new Audio('beep.wav');
+    const audio = new Audio('assets/beep.wav');
     audio.play();
   }
   function addChatMessage (data, options) {
@@ -193,7 +193,7 @@ $(function() {
     log(`${data.username} a rejoint ! Nous sommes désormais ${data.numUsers}`)
   })
   
-  socket.on('disconnect', (data) => {
+  socket.on('disconnectUser', (data) => {
     log(`${data.username} a quitté ! Nous sommes désormais ${data.numUsers}`)
   })
 });

@@ -12,7 +12,7 @@ var map = {
    ":'(": "\uD83D\uDE22",
    
    // sexy emoji
-   
+  
    "sexe": "🍆",
    "bite": "🍌",
    "bitte": "🍌",
@@ -41,7 +41,9 @@ var map = {
     "pq":"pourquoi",
     "pk":"Pakistan",
     "csa":"Conseil supérieur de l'audiovisuel ",
+    "qlq": "Quelqu'un",
     "lul": "😂",
+    "mtn": "maintenant",
    // commands
    "/help": "Liste des commandes disponible sur -> https://chatzo.glitch.me/commands",
    "/funfact": "#funfact la terre est ronde🌍",
