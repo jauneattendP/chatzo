@@ -50,7 +50,7 @@ io.on('connection', (socket) => {
     
     users.push(socket.user)
     
-    socket.emit('loginResp', {valid: true, name: username})
+    socket.emit('response', {type: 'loginresp', valid: true, name: username})
     
     socket.broadcast.emit('login', {
       user: socket.user,
