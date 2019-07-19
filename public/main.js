@@ -15,14 +15,12 @@ $(function() {
   const $chatPage = $('.chat.page'); 
   let username;
   let connected = false;
-  let color;
   let typing = false;
   let lastTypingTime;
   let $currentInput = $usernameInput.focus();
   const socket = io();
   function setUsername () {
     username = cleanInput($usernameInput.val().trim());
-    color = COLORS[randint(0, COLORS.length)]
     if (username) {
       $loginPage.fadeOut();
       $chatPage.show();
@@ -47,7 +45,9 @@ $(function() {
   function log (message, options) {
     /*const $el = $('<li>').addClass('log').text(message);
     addMessageElement($el, options);*/
-      addChatMessage({username: "🤖Chatzo-bot", message}, {colorName: "#89D626", colorMsg: "#2689D6"})
+    addChatMessage({username: "🤖Chatzo-bot", message}, {colorName: "#89D626", colorMsg: "#2689D6"})
+    let audio = new Audio('beep.wav');
+    audio.play();
   }
   function addChatMessage (data, options) {
     var $typingMessages = getTypingMessages(data);
@@ -141,13 +141,12 @@ $(function() {
     });
   }
   function getUsernameColor (username) {
-    /*let hash = 7;
+    let hash = 7;
     for (let i = 0; i < username.length; i++) {
        hash = username.charCodeAt(i) + (hash << 5) - hash;
     }
     let index = Math.abs(hash % COLORS.length);
-    return COLORS[randint(0, COLORS.length)];*/
-    return color;
+    return COLORS[index];
   }
   
   function randint(min, max){

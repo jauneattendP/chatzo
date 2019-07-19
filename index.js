@@ -26,7 +26,7 @@ io.on('connection', (socket) => {
 
     socket.broadcast.emit('login', {
       username: socket.username,
-      numUsers: numUsers
+      numUsers
     });
   });
   socket.on('typing', function () {
@@ -44,7 +44,7 @@ io.on('connection', (socket) => {
       --numUsers;
       socket.broadcast.emit('disconnect', {
         username: socket.username,
-        numUsers: numUsers
+        numUsers
       });
     
   });
