@@ -16,6 +16,7 @@ app.use(express.static('public'));
 let numUsers = 0;
 
 io.on('connection', (socket) => {
+  
   socket.on('new message', function (data) {
     socket.broadcast.emit('new message', {
       username: socket.username,
@@ -23,37 +24,40 @@ io.on('connection', (socket) => {
     });
   });
   socket.once('add user', (username) => {
-    socket.username = username;
     numUsers++;
     
-    if(admins.)
-
+    socket.user = new User(username, {admin: admins.includes(username)})
+    
+    users.push(socket.user)
+    
     socket.broadcast.emit('login', {
-      username: socket.username,
+      user: socket.user,
       numUsers
     });
   });
+  
   socket.on('typing', function () {
-    socket.broadcast.emit('typing', {
-      username: socket.username
-    });
+    socket.broadcast.emit('typing', socket.user);
   });
+  
   socket.on('stop typing', function () {
-    socket.broadcast.emit('stop typing', {
-      username: socket.username
-    });
+    socket.broadcast.emit('stop typing', socket.user);
   });
+  
   socket.once('disconnect', function () {
     
-      if(!socket.username) return;
+      if(!socket.user) return;
 
       numUsers--;
       socket.broadcast.emit('disconnectUser', {
-        username: socket.username,
+        username: socket.user,
         numUsers
       });
     
+     users.splice(users.indexOf(socket.user), 1 );
+    
   });
+  
 });
 
 function User(username, options){
