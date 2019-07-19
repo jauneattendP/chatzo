@@ -24,15 +24,23 @@ io.on('connection', (socket) => {
     });
   });
   socket.once('add user', (username) => {
+    
+    if(users.find(user => user.username === username)){
+      
+      socket.emit('loginResp', {})
+      
+      return;
+    }
+    
     numUsers++;
-    
-    
     
     socket.user = new User(username, {
       admin: admins.includes(username),
     })
     
     users.push(socket.user)
+    
+    socket.emit('loginResp', {valid: true})
     
     socket.broadcast.emit('login', {
       user: socket.user,

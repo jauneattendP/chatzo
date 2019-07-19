@@ -22,13 +22,12 @@ $(function() {
   function setUsername () {
     username = cleanInput($usernameInput.val().trim());
     if (username) {
-      $loginPage.fadeOut();
-      $chatPage.show();
-      $loginPage.off('click');
-      $currentInput = $inputMessage.focus();
       socket.emit('add user', username);
     }
   }
+  
+  
+  
   function sendMessage () {
     var message = $inputMessage.val();
     message = cleanInput(message);
@@ -189,11 +188,23 @@ $(function() {
   });
   
   socket.on('login', (data) => {
-    //numUsers
+    
+    if(data.user.username === username){
+      $loginPage.fadeOut();
+      $chatPage.show();
+      $loginPage.off('click');
+      $currentInput = $inputMessage.focus();
+      return;
+    }
+    
     log(`${data.user.username} a rejoint !😁Nous sommes désormais ${data.numUsers}`)
   })
   
   socket.on('disconnectUser', (data) => {
     log(`${data.user.username} a quitté !😭Nous sommes désormais ${data.numUsers}`)
   })
+  
+  socket.on('loginResp', (data))
+  
 });
+
