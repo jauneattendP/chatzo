@@ -22,22 +22,31 @@ $(function() {
   function setUsername () {
     let username = cleanInput($usernameInput.val().trim());
     socket.emit('add user', username);
-    socket.emit(username);
-    socket.once('response', (data) => {
-      if(data.type === "getuser") addChatMessage(data.value)
-    })
+ 
   }
   
   function sendMessage () {
     var message = $inputMessage.val();
     message = cleanInput(message);
     if (message) {
+      
       $inputMessage.val('');
-      addChatMessage({
-        username: username,
-        message: message
-      });
-      socket.emit('new message', message);
+      socket.emit('getuser');
+      socket.once('response', (data) => {
+        
+        if(data.type === "getuser") {
+          
+            addChatMessage({
+              user: data.value,
+              message: message
+            });
+          
+            socket.emit('new message', message);
+        }
+        
+      })
+
+      
     }
      
   }
